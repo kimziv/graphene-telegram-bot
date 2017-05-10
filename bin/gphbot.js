@@ -63,7 +63,9 @@ console.log("-----"+cmds['!help']);
     //console.log("-----"+JSON.stringify(cmds['!status'])+"----"+msg);
           if(cmd in cmds){
   try{
-            cmds[cmd](client,client,msg);
+            cmds[cmd](client,null,null,function(err, s){
+              //console.log();
+            });
 
   }
   catch(e){
