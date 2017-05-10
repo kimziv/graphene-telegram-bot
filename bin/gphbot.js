@@ -42,7 +42,7 @@ var main = function(){
   };
   // Prepend prefix
   cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
-
+console.log("-----"+cmds['!help']);
   // Init modules with state
   lib.utils.mkdirSync(conf.dataDir);
   lib.cmd.monitor.init(conf.dataDir);
@@ -55,30 +55,55 @@ var main = function(){
   }
 
   var client = null;
-  var exec = lib.backend[conf.backend].exec;
+  //var exec = lib.backend[conf.backend].exec;
+
+  var checkStatus=function(cmd,client,msg, cb){
+    //cmds[cmd](bot,client,msg);
+    //var cmd = msg.text.split(" ")[0];
+    //console.log("-----"+JSON.stringify(cmds['!status'])+"----"+msg);
+          if(cmd in cmds){
+  try{
+            cmds[cmd](client,client,msg);
+
+  }
+  catch(e){
+      console.log(e);
+      cb();
+  }
+      }
+      else{
+        //bot.sendMessage(msg.chat.id,cmd+": command not found");
+      }
+      cb();
+  }
 
   // Get client and exec
   lib.wallet.getClient(urls,client,function(err,_client,url){
+    console.log("err",err);
     console.log("URL",url);
     client = _client;
 
-    var back = exec(conf.token,client,cmds);
+     
+    //var back = exec(conf.token,client,cmds);
 
-    lib.wallet.checkClientAndUpdate(client,urls,back.sendMessage,function(err,_client){
-      client = _client;
-      back.setClient(client);
-    });
+    // lib.wallet.checkClientAndUpdate(client,urls,back.sendMessage,function(err,_client){
+    //   client = _client;
+    //   back.setClient(client);
+    // });
 
     // Monitor procedure
     async.whilst(
       function(){ return true},
       function(cb){
-        lib.cmd.monitor.notify(client,back.sendMessage,function(e){
-	  if(e){
-	    console.log(e);
-	  }
-          setTimeout(cb,1000);
+        checkStatus("!status",client,"!status",function(){
+          setTimeout(cb,3000);
         });
+   //     lib.cmd.monitor.notify(client,back.sendMessage,function(e){
+	  // if(e){
+	  //   console.log(e);
+	  // }
+   //        setTimeout(cb,1000);
+   //      });
       },function(){});
   });
 
