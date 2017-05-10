@@ -3,6 +3,7 @@ var _ = require('underscore');
 var _str = require('underscore.string');
 var argv = require('yargs').argv;
 var lib = require('../lib');
+//var help= require('../lib').cmd.help
 
 var die = function() {
   console.log("bin/gphbot");
@@ -63,7 +64,7 @@ console.log("-----"+cmds['!help']);
     //console.log("-----"+JSON.stringify(cmds['!status'])+"----"+msg);
           //if(cmd in cmds){
   //try{
-            cmd(client,null,null,function(err, s){
+             cmd(client,null,null,function(err, s){
               //console.log();
             });
 
