@@ -110,7 +110,9 @@ console.log("-----"+cmds['!help']);
 	  // }
    //        setTimeout(cb,1000);
    //      });
-      },function(){});
+      },function(err){
+         console.log(err);
+      });
   });
 
 };
