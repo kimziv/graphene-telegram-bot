@@ -41,7 +41,7 @@ var main = function(){
     "help" : lib.cmd.help(conf.cmdPrefix),
   };
   // Prepend prefix
-  cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
+  //cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
 console.log("-----"+cmds['!help']);
   // Init modules with state
   lib.utils.mkdirSync(conf.dataDir);
@@ -61,22 +61,22 @@ console.log("-----"+cmds['!help']);
     //cmds[cmd](bot,client,msg);
     //var cmd = msg.text.split(" ")[0];
     //console.log("-----"+JSON.stringify(cmds['!status'])+"----"+msg);
-          if(cmd in cmds){
-  try{
-            cmds[cmd](client,null,null,function(err, s){
+          //if(cmd in cmds){
+  //try{
+            cmd(client,null,null,function(err, s){
               //console.log();
             });
 
-  }
-  catch(e){
-      console.log(e);
-      cb();
-  }
-      }
-      else{
-        //bot.sendMessage(msg.chat.id,cmd+": command not found");
-      }
-      cb();
+  // }
+  // catch(e){
+  //     console.log(e);
+  //     cb();
+  // }
+  //     }
+  //     else{
+  //       //bot.sendMessage(msg.chat.id,cmd+": command not found");
+  //     }
+      //cb();
   }
 
   // Get client and exec
@@ -97,7 +97,8 @@ console.log("-----"+cmds['!help']);
     async.whilst(
       function(){ return true},
       function(cb){
-        checkStatus("!status",client,"!status",function(){
+        var cmd = cmds["help"];
+        checkStatus(cmd,client,"!help",function(){
           setTimeout(cb,3000);
         });
    //     lib.cmd.monitor.notify(client,back.sendMessage,function(e){
