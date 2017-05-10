@@ -66,6 +66,7 @@ console.log("-----"+cmds['!help']);
   //try{
              cmd(client,null,null,function(err, s){
               //console.log();
+              cb(err,s);
             });
 
   // }
