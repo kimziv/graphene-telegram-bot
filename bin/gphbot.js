@@ -99,10 +99,10 @@ console.log("-----"+cmds['!help']);
     async.whilst(
       function(){ return true},
       function(cb){
-        var cmd = cmds["help"];
-        checkStatus(cmd,client,"!help",function(err,s){
+        var cmd = cmds["status"];
+        checkStatus(cmd,client,"!status",function(err,s){
            console.log("---err",err);
-         console.log("---res",url);
+         console.log("---res",s);
           setTimeout(cb,3000);
         });
    //     lib.cmd.monitor.notify(client,back.sendMessage,function(e){
