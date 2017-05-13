@@ -93,7 +93,7 @@ var main = function(){
         var cmd = cmds["price"];
         callCmd(client,cmd,"price", null,function(err,s){
           // console.log("---err",err);
-         //console.log("---res",s);
+         console.log("---res:",s,"---err:",err);
           setTimeout(cb,3000);
         });
         // checkStatus(cmd,client,"price",function(err,s){
