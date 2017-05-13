@@ -93,7 +93,12 @@ var main = function(){
         var cmd = cmds["price"];
         callCmd(client,cmd,["CNY"], null,function(err,s){
           // console.log("---err",err);
-         console.log("---res:\n",s,"\n ---err:\n",err);
+          if (err) {
+              console.log("---res:\n",s);
+          }else{
+              console.log("---err:\n",err);
+          }
+         
           setTimeout(cb,3000);
         });
         // checkStatus(cmd,client,"price",function(err,s){
