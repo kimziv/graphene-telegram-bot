@@ -65,6 +65,13 @@ var main = function(){
             });
   }
 
+  var callCmd=function(client,args,chatId,cb){
+        cmd(client,args,chatId,function(err, s){
+              //console.log();
+              cb(err,s);
+            });
+  }
+
   // Get client and exec
   lib.wallet.getClient(urls,client,function(err,_client,url){
    // console.log("err",err);
@@ -84,11 +91,16 @@ var main = function(){
       function(){ return true},
       function(cb){
         var cmd = cmds["price"];
-        checkStatus(cmd,client,"price",function(err,s){
+        callCmd(client,cmd,"price",function(err,s){
           // console.log("---err",err);
          //console.log("---res",s);
           setTimeout(cb,3000);
         });
+        // checkStatus(cmd,client,"price",function(err,s){
+        //   // console.log("---err",err);
+        //  //console.log("---res",s);
+        //   setTimeout(cb,3000);
+        // });
    //     lib.cmd.monitor.notify(client,back.sendMessage,function(e){
 	  // if(e){
 	  //   console.log(e);
