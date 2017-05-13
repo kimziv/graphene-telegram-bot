@@ -91,7 +91,7 @@ var main = function(){
       function(){ return true},
       function(cb){
         var cmd = cmds["price"];
-        callCmd(client,cmd,"USD", null,function(err,s){
+        callCmd(client,cmd,["USD"], null,function(err,s){
           // console.log("---err",err);
          console.log("---res:",s,"---err:",err);
           setTimeout(cb,3000);
