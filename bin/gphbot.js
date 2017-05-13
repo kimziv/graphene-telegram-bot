@@ -91,7 +91,7 @@ var main = function(){
       function(){ return true},
       function(cb){
          var cmd = cmds["feed"];
-        callCmd(client,cmd,["CNY"], null,function(err,s){
+        callCmd(client,cmd,["BTC"], null,function(err,s){
           // console.log("---err",err);
           if (!err) {
               console.log("---res:\n",s);
