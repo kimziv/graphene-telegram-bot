@@ -42,8 +42,8 @@ var main = function(){
     "help" : lib.cmd.help(conf.cmdPrefix),
   };
   // Prepend prefix
-  //cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
-console.log("-----"+cmds['!help']);
+  cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
+  console.log("-----"+cmds['!help']);
   // Init modules with state
   lib.utils.mkdirSync(conf.dataDir);
   lib.cmd.monitor.init(conf.dataDir);
@@ -59,31 +59,15 @@ console.log("-----"+cmds['!help']);
   //var exec = lib.backend[conf.backend].exec;
 
   var checkStatus=function(cmd,client,msg, cb){
-    //cmds[cmd](bot,client,msg);
-    //var cmd = msg.text.split(" ")[0];
-    //console.log("-----"+JSON.stringify(cmds['!status'])+"----"+msg);
-          //if(cmd in cmds){
-  //try{
-             cmd(client,null,null,function(err, s){
+        cmd(client,null,null,function(err, s){
               //console.log();
               cb(err,s);
             });
-
-  // }
-  // catch(e){
-  //     console.log(e);
-  //     cb();
-  // }
-  //     }
-  //     else{
-  //       //bot.sendMessage(msg.chat.id,cmd+": command not found");
-  //     }
-      //cb();
   }
 
   // Get client and exec
   lib.wallet.getClient(urls,client,function(err,_client,url){
-    console.log("err",err);
+   // console.log("err",err);
     console.log("URL",url);
     client = _client;
 
@@ -99,10 +83,10 @@ console.log("-----"+cmds['!help']);
     async.whilst(
       function(){ return true},
       function(cb){
-        var cmd = cmds["status"];
+        var cmd = cmds["!status"];
         checkStatus(cmd,client,"!status",function(err,s){
-           console.log("---err",err);
-         console.log("---res",s);
+          // console.log("---err",err);
+         //console.log("---res",s);
           setTimeout(cb,3000);
         });
    //     lib.cmd.monitor.notify(client,back.sendMessage,function(e){
