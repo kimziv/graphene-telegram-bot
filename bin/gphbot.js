@@ -42,7 +42,7 @@ var main = function(){
     "help" : lib.cmd.help(conf.cmdPrefix),
   };
   // Prepend prefix
-  cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
+  //cmds = lib.utils.prependCommand(cmds,conf.cmdPrefix);
   console.log("-----"+cmds['!help']);
   // Init modules with state
   lib.utils.mkdirSync(conf.dataDir);
@@ -83,8 +83,8 @@ var main = function(){
     async.whilst(
       function(){ return true},
       function(cb){
-        var cmd = cmds["!status"];
-        checkStatus(cmd,client,"!status",function(err,s){
+        var cmd = cmds["status"];
+        checkStatus(cmd,client,"status",function(err,s){
           // console.log("---err",err);
          //console.log("---res",s);
           setTimeout(cb,3000);
