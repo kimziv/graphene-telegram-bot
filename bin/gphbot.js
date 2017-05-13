@@ -90,8 +90,9 @@ var main = function(){
     async.whilst(
       function(){ return true},
       function(cb){
-         var cmd = cmds["feed"];
-        callCmd(client,cmd,["BTC"], null,function(err,s){
+
+        var cmd = cmds["missed"];
+        callCmd(client,cmd,["witness.yao"], null,function(err,s){
           // console.log("---err",err);
           if (!err) {
               console.log("---res:\n",s);
@@ -101,6 +102,18 @@ var main = function(){
          
           setTimeout(cb,3000);
         });
+
+        //  var cmd = cmds["feed"];
+        // callCmd(client,cmd,["BTC"], null,function(err,s){
+        //   // console.log("---err",err);
+        //   if (!err) {
+        //       console.log("---res:\n",s);
+        //   }else{
+        //       console.log("---err:\n",err);
+        //   }
+         
+        //   setTimeout(cb,3000);
+        // });
 
         // var cmd = cmds["price"];
         // callCmd(client,cmd,["CNY"], null,function(err,s){
