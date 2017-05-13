@@ -90,7 +90,7 @@ var main = function(){
     async.whilst(
       function(){ return true},
       function(cb){
-        var cmd = cmds["price"];
+         var cmd = cmds["feed"];
         callCmd(client,cmd,["CNY"], null,function(err,s){
           // console.log("---err",err);
           if (!err) {
@@ -101,6 +101,19 @@ var main = function(){
          
           setTimeout(cb,3000);
         });
+
+        // var cmd = cmds["price"];
+        // callCmd(client,cmd,["CNY"], null,function(err,s){
+        //   // console.log("---err",err);
+        //   if (!err) {
+        //       console.log("---res:\n",s);
+        //   }else{
+        //       console.log("---err:\n",err);
+        //   }
+         
+        //   setTimeout(cb,3000);
+        // });
+
         // checkStatus(cmd,client,"price",function(err,s){
         //   // console.log("---err",err);
         //  //console.log("---res",s);
