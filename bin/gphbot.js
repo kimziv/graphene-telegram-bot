@@ -65,7 +65,7 @@ var main = function(){
             });
   }
 
-  var callCmd=function(client,args,chatId,cb){
+  var callCmd=function(client,cmd,args,chatId,cb){
         cmd(client,args,chatId,function(err, s){
               //console.log();
               cb(err,s);
@@ -91,7 +91,7 @@ var main = function(){
       function(){ return true},
       function(cb){
         var cmd = cmds["price"];
-        callCmd(client,cmd,"price",function(err,s){
+        callCmd(client,cmd,"price", null,function(err,s){
           // console.log("---err",err);
          //console.log("---res",s);
           setTimeout(cb,3000);
