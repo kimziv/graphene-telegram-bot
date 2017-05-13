@@ -83,8 +83,8 @@ var main = function(){
     async.whilst(
       function(){ return true},
       function(cb){
-        var cmd = cmds["status"];
-        checkStatus(cmd,client,"status",function(err,s){
+        var cmd = cmds["price"];
+        checkStatus(cmd,client,"price",function(err,s){
           // console.log("---err",err);
          //console.log("---res",s);
           setTimeout(cb,3000);
