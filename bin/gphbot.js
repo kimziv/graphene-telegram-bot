@@ -93,7 +93,7 @@ var main = function(){
         var cmd = cmds["price"];
         callCmd(client,cmd,["CNY"], null,function(err,s){
           // console.log("---err",err);
-          if (err) {
+          if (!err) {
               console.log("---res:\n",s);
           }else{
               console.log("---err:\n",err);
