@@ -10,7 +10,7 @@ test.run({debug:true});
 test.on('getMesg', (err, objList, content, from) => {
   err && console.log(err)
   // console.log(test.globalVal)
-  console.log('you have message')
+  console.log('----'+content+"\n    "+from)
   if (objList[0].MsgType === 1) {
     let data = {
       'key': KEY,
