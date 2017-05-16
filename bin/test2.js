@@ -1,7 +1,9 @@
 "use strict";
 const Itchat = require('../itchat/index')
 const request = require('superagent')
-
+const KEY = '8edce3ce905a4c1dbb965e6b35c3834d'
+// const URL = require('url').URL
+let apiUrl = 'http://www.tuling123.com/openapi/api'
 
 let test = new Itchat();
 test.run({debug:true});
@@ -10,13 +12,14 @@ test.run({debug:true});
 test.on('getMesg', (err, objList, content, from) => {
   err && console.log(err)
   // console.log(test.globalVal)
-  console.log('----'+content+"\n    "+from)
+  
   if (objList[0].MsgType === 1) {
-    let data = {
-      'key': KEY,
-      'info': content,
-      'userid': 'wechat-robot'
-    }
+    console.log('----'+content+"\n    "+from)
+    // let data = {
+    //   'key': KEY,
+    //   'info': content,
+    //   'userid': 'wechat-robot'
+    // }
 
     // request.post(apiUrl)
     // .send(data)
