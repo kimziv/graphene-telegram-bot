@@ -1,6 +1,6 @@
 {
   "token" : "<SLACK TOKEN>",
-  "url" : "ws://127.0.0.1:8099",
+  "url" : "ws://127.0.0.1:8092",
   "backupUrls" : [],
   "cmdPrefix" : "!",
   "dataDir" : "./dataSlack",

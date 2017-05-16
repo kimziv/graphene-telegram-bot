@@ -9,16 +9,17 @@
     "url": ""
   },
   "dependencies": {
+    "async": "*",
+    "graphene": "*",
     "minimist": "*",
     "moment": "*",
-    "async": "*",
-    "yargs" : "*",
+    "node-telegram-bot-api": "*",
+    "slack-client": "1.x",
     "underscore": "*",
     "underscore.string": "*",
-    "ws" : "*",
-    "node-telegram-bot-api" : "*",
-    "slack-client" : "1.x",
-    "graphene" : "*"
+    "ws": "*",
+    "yargs": "*",
+    "superagent": "^3.4.1"
   },
   "keywords": [
     "bitshares",
@@ -29,7 +30,7 @@
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "devDependencies": {
-    "expect.js" : "*",
-    "mocha" : "*"
+    "expect.js": "*",
+    "mocha": "*"
   }
 }
