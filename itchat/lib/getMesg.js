@@ -22,11 +22,11 @@ module.exports = function getMesg (fn) {
     rr: ~time
   })
   .end((err, res) => {
-    logger.trace('get mesg res' + res.text)
+    logger.debug('----get mesg res' + res.text)
     let obj = JSON.parse(res.text)
     globalVal.SyncKey = obj.SyncCheckKey
     saveGlobal()
-    logger.debug('you have message')
+    //logger.debug('you have message')
     fn && fn(err, obj.AddMsgList) // array
   })
 }

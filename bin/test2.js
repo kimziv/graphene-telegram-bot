@@ -16,7 +16,7 @@ test.on('getMesg', (err, objList, content, from) => {
   for (var i = 0; i < objList.length; i++) {
     obj= objList[i]
     if (obj.MsgType === 1) {
-    console.log('----'+content+"\n    "+from)
+    //console.log('----'+content+"\n    "+from)
     // let data = {
     //   'key': KEY,
     //   'info': content,
