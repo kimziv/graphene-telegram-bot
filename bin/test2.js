@@ -14,7 +14,7 @@ test.on('getMesg', (err, objList, content, from) => {
   // console.log(test.globalVal)
   
   if (objList[0].MsgType === 1) {
-    console.log('----'+content+"\n    "+from)
+    console.log('----'+JSON.stringfy(content)+"\n    "+from)
     // let data = {
     //   'key': KEY,
     //   'info': content,
