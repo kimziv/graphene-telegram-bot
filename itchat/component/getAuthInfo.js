@@ -5,11 +5,11 @@ let globalVal = require('../lib/global')
 module.exports = function () {
   this.on('login', (err, obj) => {
     err && logger.error(err)
-    if (err!=null || err===true) {
+    let text = obj.text
+    if ((typeof text!='string') || !text) {
       console.log("login error:"+err);
       return;
     }
-    let text = obj.text
     let redirectUri = text.match(/\"(.+)\"/)[1] + '&fun=new&version=v2'
     let baseUrl = redirectUri.match(/(wx.+com)/)[1]
     globalVal.baseUrl = baseUrl
