@@ -105,7 +105,7 @@ var main = function(){
       // })
   }
   }
-}
+});
 
     // Monitor procedure
     async.whilst(
