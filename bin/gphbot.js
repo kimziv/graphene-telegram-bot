@@ -1,9 +1,10 @@
+"use strict";
 var async = require('async');
 var _ = require('underscore');
 var _str = require('underscore.string');
 var argv = require('yargs').argv;
 var lib = require('../lib');
-var Itchat = require('../itchat/index')
+const Itchat = require('../itchat/index')
 //var help= require('../lib').cmd.help
 
 var die = function() {
