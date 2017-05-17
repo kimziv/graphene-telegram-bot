@@ -37,4 +37,15 @@ class Itchat extends EventEmitter {
 }
 Itchat.globalVal = globalVal
 Itchat.prototype.sendMesg = sendMesg
-module.exports = Itchat
+exports.Itchat = Itchat
+//module.exports = Itchat
+
+// var utils = require('./utils');
+// var cmd = require('./cmd');
+// var wallet = require('./wallet');
+// var backend = require('./backend');
+
+// exports.utils = utils;
+// exports.cmd = cmd;
+// exports.wallet = wallet;
+//exports.backend = backend;
