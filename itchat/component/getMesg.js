@@ -6,6 +6,7 @@ module.exports = function () {
     err && logger.error(err)
     getMesg((err, AddMsgList) => {
       let firstMsg = AddMsgList[0]
+      console.log("####msg:"+JSON.stringfy(firstMsg));
       firstMsg && this.emit('getMesg', err, AddMsgList, firstMsg.Content, firstMsg.FromUserName, firstMsg.MsgType)
       this.emit('syncCheck', err)
     })
