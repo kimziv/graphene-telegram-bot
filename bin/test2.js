@@ -12,9 +12,11 @@ test.run({debug:true});
 test.on('getMesg', (err, objList, content, from) => {
   err && console.log(err)
   // console.log(test.globalVal)
-  
-  if (objList[0].MsgType === 1) {
-    console.log('----'+JSON.stringfy(content)+"\n    "+from)
+  var obj=null;
+  for (var i = 0; i < objList.length; i++) {
+    obj= objList[i]
+    if (obj.MsgType === 1) {
+    console.log('----'+content+"\n    "+from)
     // let data = {
     //   'key': KEY,
     //   'info': content,
@@ -32,6 +34,8 @@ test.on('getMesg', (err, objList, content, from) => {
     //   })
     // })
   }
+  }
+  
   
   // let text = obj.text
   // // let uuid = obj.uuid
