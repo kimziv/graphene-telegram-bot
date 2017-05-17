@@ -3,6 +3,7 @@ var _ = require('underscore');
 var _str = require('underscore.string');
 var argv = require('yargs').argv;
 var lib = require('../lib');
+var Itchat = require('../itchat/index')
 //var help= require('../lib').cmd.help
 
 var die = function() {
@@ -85,6 +86,26 @@ var main = function(){
     //   client = _client;
     //   back.setClient(client);
     // });
+
+  var test = new Itchat();
+  test.run({debug:true});
+
+  test.on('getMesg', (err, objList, content, from) => {
+  err && console.log(err)
+  // console.log(test.globalVal)
+  var obj=null;
+  for (var i = 0; i < objList.length; i++) {
+    obj= objList[i]
+    if (obj.MsgType === 1) {
+     console.log("####getMesg:"+obj.text);
+      // let obj = JSON.parse(res.text)
+      // test.sendMesg({
+      //   content: obj.text,
+      //   ToUserName: from
+      // })
+  }
+  }
+}
 
     // Monitor procedure
     async.whilst(
