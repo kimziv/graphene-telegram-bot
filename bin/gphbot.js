@@ -74,7 +74,7 @@ var main = function(){
             });
   }
 
-  var request=function(cmd, params, from){
+  var request=function(client,cmd, params, from){
       var cmd = cmds[cmd];
       callCmd(client,cmd,params, null,function(err,s){
           // console.log("---err",err);
@@ -124,11 +124,11 @@ var main = function(){
      var content=obj.Content;
      if (content.endsWith('#help')) {
       console.log("<<<<<getMesg:"+content);
-      request("help",[],obj.FromUserName);
+      request(test,"help",[],obj.FromUserName);
      }else if(content.endsWith('#status')){
-      request("status",[],obj.FromUserName);
+      request(test,"status",[],obj.FromUserName);
      }else if(content.indexOf('#missed ')>=0){
-      request("missed",["witness.yao"],obj.FromUserName);
+      request(test,"missed",["witness.yao"],obj.FromUserName);
      }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
