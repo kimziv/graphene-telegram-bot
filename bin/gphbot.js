@@ -134,6 +134,20 @@ var main = function(){
       var cmd=eles[0];
       var parms=eles[1];
       request(test,"missed",[parms],obj.FromUserName);
+     }else if(content.indexOf('#price ')>=0){
+      var start = content.indexOf('#price ');
+      var pureText=content.substring(start);
+      var eles=pureText.split(" ");
+      var cmd=eles[0];
+      var parms=eles[1];
+      request(test,"price",[parms],obj.FromUserName);
+     }else if(content.indexOf('#feed ')>=0){
+      var start = content.indexOf('#feed ');
+      var pureText=content.substring(start);
+      var eles=pureText.split(" ");
+      var cmd=eles[0];
+      var parms=eles[1];
+      request(test,"feed",[parms],obj.FromUserName);
      }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
