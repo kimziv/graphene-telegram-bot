@@ -128,7 +128,7 @@ var main = function(){
      }else if(content.endsWith('#status')){
       request(test,"status",[],obj.FromUserName);
      }else if(content.indexOf('#missed ')>=0){
-      int start = content.indexOf('#missed ');
+      var start = content.indexOf('#missed ');
       var pureText=content.substring(start);
       var eles=pureText.split(" ");
       var cmd=eles[0];
