@@ -74,13 +74,13 @@ var main = function(){
             });
   }
 
-  var request=function(client,cmd, params, from){
+  var request=function(chat,cmd, params, from){
       var cmd = cmds[cmd];
       callCmd(client,cmd,params, null,function(err,s){
           // console.log("---err",err);
           if (!err) {
               console.log("---res:\n",s);
-              test.sendMesg({
+              chat.sendMesg({
                 content:s,
                 ToUserName: from
               });
