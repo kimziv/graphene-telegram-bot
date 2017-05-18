@@ -128,7 +128,12 @@ var main = function(){
      }else if(content.endsWith('#status')){
       request(test,"status",[],obj.FromUserName);
      }else if(content.indexOf('#missed ')>=0){
-      request(test,"missed",["witness.yao"],obj.FromUserName);
+      int start = content.indexOf('#missed ');
+      var pureText=content.substring(start);
+      var eles=pureText.split(" ");
+      var cmd=eles[0];
+      var parms=eles[1];
+      request(test,"missed",[parms],obj.FromUserName);
      }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
