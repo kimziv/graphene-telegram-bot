@@ -106,8 +106,22 @@ var main = function(){
       */
      console.log("####getMesg:"+JSON.stringify(obj));
      var content=obj.Content;
-     if (content.endsWith('#help')) {
+     if (content.endsWith('!!help')) {
       console.log("<<<<<getMesg:"+content);
+       var cmd = cmds["help"];
+        callCmd(client,cmd,[], null,function(err,s){
+          // console.log("---err",err);
+          if (!err) {
+              console.log("---res:\n",s);
+              test.sendMesg({
+                content:s,
+                ToUserName: obj.FromUserName
+              });
+          }else{
+              console.log("---err:\n",err);
+          }
+         
+        });
      }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
