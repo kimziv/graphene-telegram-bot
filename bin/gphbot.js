@@ -98,7 +98,17 @@ var main = function(){
   for (var i = 0; i < objList.length; i++) {
     obj= objList[i]
     if (obj.MsgType === 1) {
+      /*
+      {"MsgId":"3733066332363459342","FromUserName":"@@90da40cadd14814fc51679c42d2e8040725ab3cf3edcd3f6dcc5d3608df5c24d","ToUserName":"@85356f712c9f3dbc43c1ba1107ee33c0","MsgType":1,"Content":"@97e12051cf40721947778158bc608e0afa0bd8e89453f2101556b616c57e9816:<br/>首仑我赔了不少钱，坑爹","Status":3,"ImgStatus":1,"CreateTime":1495067472,"VoiceLength":0,"PlayLength":0,"FileName":"","FileSize":"","MediaId":"","Url":"","AppMsgType":0,"StatusNotifyCode":0,"StatusNotifyUserName":"","RecommendInfo":{"UserName":"","NickName":"","QQNum":0,"Province":"","City":"","Content":"","Signature":"","Alias":"","Scene":0,"VerifyFlag":0,"AttrStatus":0,"Sex":0,"Ticket":"","OpCode":0},"ForwardFlag":0,"AppInfo":{"AppID":"","Type":0},"HasProductId":0,"Ticket":"","ImgHeight":0,"ImgWidth":0,"SubMsgType":0,"NewMsgId":3733066332363459600,"OriContent":""}
+---res:
+ witness.yao missed blocks: 3120
+
+      */
      console.log("####getMesg:"+JSON.stringify(obj));
+     var content=obj.Content;
+     if (content.endsWith('#help')) {
+      console.log("<<<<<getMesg:"+content);
+     }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
       //   content: obj.text,
