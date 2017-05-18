@@ -98,7 +98,7 @@ var main = function(){
   for (var i = 0; i < objList.length; i++) {
     obj= objList[i]
     if (obj.MsgType === 1) {
-     console.log("####getMesg:"+JSON.stringfy(obj));
+     console.log("####getMesg:"+JSON.stringify(obj));
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
       //   content: obj.text,
