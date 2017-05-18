@@ -1,0 +1,8 @@
+{
+  "token" : "<TELEGRAM TOKEN>",
+  "url" : "ws://127.0.0.1:8091",
+  "backupUrls" : [],
+  "cmdPrefix" : "#",
+  "dataDir" : "./dataWechat",
+  "backend" : "telegram"
+}

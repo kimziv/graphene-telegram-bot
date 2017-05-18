@@ -74,6 +74,22 @@ var main = function(){
             });
   }
 
+  var request=function(cmd, params, from){
+      var cmd = cmds[cmd];
+      callCmd(client,cmd,params, null,function(err,s){
+          // console.log("---err",err);
+          if (!err) {
+              console.log("---res:\n",s);
+              test.sendMesg({
+                content:s,
+                ToUserName: from
+              });
+          }else{
+              console.log("---err:\n",err);
+          }
+        });
+  }
+
   // Get client and exec
   lib.wallet.getClient(urls,client,function(err,_client,url){
    // console.log("err",err);
@@ -106,22 +122,13 @@ var main = function(){
       */
      console.log("####getMesg:"+JSON.stringify(obj));
      var content=obj.Content;
-     if (content.endsWith('!!help')) {
+     if (content.endsWith('#help')) {
       console.log("<<<<<getMesg:"+content);
-       var cmd = cmds["help"];
-        callCmd(client,cmd,[], null,function(err,s){
-          // console.log("---err",err);
-          if (!err) {
-              console.log("---res:\n",s);
-              test.sendMesg({
-                content:s,
-                ToUserName: obj.FromUserName
-              });
-          }else{
-              console.log("---err:\n",err);
-          }
-         
-        });
+      request("help",[],obj.FromUserName);
+     }else if(content.endsWith('#status')){
+      request("status",[],obj.FromUserName);
+     }else if(content.indexOf('#missed ')>=0){
+      request("missed",["witness.yao"],obj.FromUserName);
      }
       // let obj = JSON.parse(res.text)
       // test.sendMesg({
